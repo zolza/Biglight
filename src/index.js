@@ -1,11 +1,14 @@
-function scrollHandler()
-{
-  var catalogContainer = document.getElementById('catalog-container');
-  var rectCatalogContainer = catalogContainer.getBoundingClientRect();
-  var productListing = document.getElementById('product-listing');
+var catalogContainer = document.getElementById('catalog-container');
+var productListing = document.getElementById('product-listing');
+var filterMenu = document.getElementById('search-results-header-container');
+var buttonClickable = document.getElementsByClassName('filter-search-btn-js')[0];
+var filterOptions = document.getElementById('nav-dept');
+var content = document.getElementById('page-contents');
+var scrollTop = window.scrollY;
+
+function scrollHandler() {
   var rectProductListing = productListing.getBoundingClientRect();
-  var filterMenu = document.getElementById('search-results-header-container');
-  var scrollTop = window.scrollY;
+  var rectCatalogContainer = catalogContainer.getBoundingClientRect();
 
   filterMenu.classList.toggle(
     'search-results-header-container-inject-show',
@@ -17,14 +20,7 @@ function scrollHandler()
     rectProductListing.bottom < 635);
 };
 
-
-var buttonClickable = document.getElementsByClassName('filter-search-btn-js')[0];
-
-function clickHandler()
-{
-  var filterOptions = document.getElementById('nav-dept');
-  var content = document.getElementById('page-contents');
-
+function clickHandler() {
   // I can not make it work, but I decided to leave it here so you know that at least I have tried.
 
   // var textContainer = document.createElement('div');
@@ -37,12 +33,22 @@ function clickHandler()
   // };
 
   filterOptions.classList.add('nav-dept-inject');
-
 };
 
-if (window.innerWidth < 640) {
-
+function animate() {
   buttonClickable.addEventListener('click', clickHandler);
   document.addEventListener('scroll', scrollHandler);
-
 };
+
+
+if (window.innerWidth < 640) {
+  animate();
+};
+
+window.addEventListener('resize', function() {
+  if (window.innerWidth > 640) {
+    document.removeEventListener('scroll', scrollHandler);
+  } else {
+    animate();
+  }
+});
