@@ -1,0 +1,30 @@
+{
+  "name": "biglight",
+  "version": "1.0.0",
+  "description": "project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack && node-sass ./scss -o ./css && exit 0",
+    "watch": "webpack --watch & node-sass --watch ./scss -o ./css",
+    "serve": "npm run watch & live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zolza/Biglight.git"
+  },
+  "author": "Kinga Koziol",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zolza/Biglight/issues"
+  },
+  "homepage": "https://github.com/zolza/Biglight#readme",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-latest": "^6.24.1",
+    "live-server": "^1.2.0",
+    "node-sass": "^4.5.2",
+    "webpack": "^2.5.1"
+  }
+}

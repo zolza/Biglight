@@ -1,0 +1,55 @@
+@-webkit-keyframes filterAppear {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.search-results-header-container-inject-show {
+  position: fixed;;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 11;
+  animation: filterAppear .5s linear;
+
+}
+
+@-webkit-keyframes filterHide {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.search-results-header-container-inject-hide {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 11;
+  animation: filterHide .3s linear;
+  animation-fill-mode: forwards;
+}
+
+.page-contents-inject {
+  background-color: lightgrey;
+}
+
+.nav-dept-inject {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 12;
+  background: lightgrey;
+  margin: 0 auto;
+}
+
+.nav-dept-inject .facet-color {
+  opacity: 0;
+}
+
+.nav-dept-inject .plp-checkbox {
+  float: right;
+}
+
+.nav-dept-inject .filters-nav {
+  background: white;
+}
